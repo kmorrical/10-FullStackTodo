@@ -38,7 +38,7 @@
             //the todo is the object to be updated
         }
 
-        function remove() {
+        function remove(id) {
             return $http.delete('http://localhost:52805/api/todoes/' + id);
         }
     }

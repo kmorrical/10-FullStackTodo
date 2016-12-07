@@ -1,81 +1,80 @@
-
 <!DOCTYPE html>
 <html lang="" ng-app="app">
 
 <head>
-   <title>VSTDA</title>
-   <!-- Required meta tags always come first -->
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <!-- Bootstrap CSS -->
-   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>VSTDA</title>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
-   
-   <header>
-   </header>
-
-   <div ng-controller="HomeController as home">
-   <!--refer to home controller or any binding that i use example: if want a message controlled by home.controller use {{home.message}}-->
-   <div class="col-sm-4 offset-sm-1">
-       <div class="panel panel-info">
-           <div class="panel-heading">Add Todo Item
-           </div><br>
-           <div class="panel-body">
-             <label for="usr">Text</label>
-              <input type="" name="" ng-model="home.newTodo" id="" cols="30" rows="1" class="form-control" ></input><br>
-           </div>
-
-
-           <div class="dropdown"><label for="usr">Priority</label><br>
-           
-            <select name="" id="" ng-model="home.newPriority" id="" cols="30" rows="1" class="form-control" >
-                  <option value=""></option>
-                  <option value=3>Low</option>
-                  <option value=2>Medium</option>
-                  <option value=1>High</option>
-              </select>
-           
-           </div>
-
-           <br>
-           <div class="panel-footer">
-             <button class="btn btn-primary" ng-click="home.addTodo()">Add Todo
-             </button>
-           </div>
-       </div>
-   </div>
-
-   <div class="col-sm-8">
-     <div class="btn-group" role="group" >
-       <button type="button" class="btn btn-primary" ng-click="home.sortTodos(1)">Order by Highest Priority</button>
-       <button type="button" class="btn btn-primary" ng-click="home.sortTodos(2)">Order by Lowest Priority</button>
-       <button type="button" class="btn btn-primary" ng-click="home.sortTodos(0)">Order alphabetically</button>
-     </div>
-
-     <br></br>
-     
-     <!--class="list-group-item list-group-item-info">Second item</li>
+    <header>
+    </header>
+    <div ng-controller="HomeController as home">
+        <!--refer to home controller or any binding that i use example: if want a message controlled by home.controller use {{home.message}}-->
+        <div class="col-sm-4 offset-sm-1">
+            <div class="panel panel-info">
+                <div class="panel-heading">Add Todo Item
+                </div>
+                <br>
+                <div class="panel-body">
+                    <label for="usr">Text</label>
+                    <input type="" name="" ng-model="home.newTodo" id="" cols="30" rows="1" class="form-control"></input>
+                    <br>
+                </div>
+                <div class="dropdown">
+                    <label for="usr">Priority</label>
+                    <br>
+                    <select name="" id="" ng-model="home.newPriority" id="" cols="30" rows="1" class="form-control">
+                        <option value=""></option>
+                        <option value=3>Low</option>
+                        <option value=2>Medium</option>
+                        <option value=1>High</option>
+                    </select>
+                </div>
+                <br>
+                <div class="panel-footer">
+                    <button class="btn btn-primary" ng-click="home.addTodo()">Add Todo
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary" ng-click="home.sortTodos(1)">Order by Highest Priority</button>
+                <button type="button" class="btn btn-primary" ng-click="home.sortTodos(2)">Order by Lowest Priority</button>
+                <button type="button" class="btn btn-primary" ng-click="home.sortTodos(0)">Order alphabetically</button>
+            </div>
+            <br></br>
+            <!--class="list-group-item list-group-item-info">Second item</li>
      <li class="list-group-item list-group-item-warning">Third item</li>
     <li class="list-group-item list-group-item-danger">Fourth item</li>-->
-     
-   <ul class="list-group">
-     <li li class="list-group-item" ng-repeat="todo in home.todos| orderBy: home.sortCategory" ng-class="home.getclass(todo)">{{todo.name}}</li>
-     <!--I changed this to todo.name instead of todo.text to see if that changed it-->
-   </ul>
-     </div>
-     </div>
-   <!-- jQuery first, then Tether, then Bootstrap JS. -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
-   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   <script src="bower_components/angular/angular.js"></script>
-   <script src="app/app.module.js"></script>
-   <script src="app/home/home.controller.js"></script>
-   <script src="app/home/todo.factory.js"</script>
-   </body>
+            <ul class="list-group">
+                <li li class="list-group-item" ng-repeat="todo in home.todos| orderBy: home.sortCategory" ng-class="home.getclass(todo)"><span ng-click="editing=!editing" ng-hide="editing">{{todo.name}}</span>
+                <input type="text" name="" ng-show="editing" ng-model="todo.name">
+                    <button class="btn btn-danger" ng-click="home.deleteTodo(todo)">X</button>
+                    <button type="button" ng-hide="editing" n class="btn btn-primary" ng-click="editing=!editing">Edit
+                    </button>
+                     <button type="button" ng-show="editing" n class="btn btn-primary" ng-click="home.editTodo(todo); editing=!editing">Save
+                    </button>
+                </li>
+                <!--I changed this to todo.name instead of todo.text to see if that changed it-->
+            </ul>
+        </div>
+    </div>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/home/home.controller.js"></script>
+    <script src="app/home/todo.factory.js" </script>
+    < /body>
 
-</html>
+    < /html>

@@ -1,14 +1,22 @@
-﻿using System;
+﻿using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace VSTDA.Api
 {
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
-        {
+        {   //enable CORS
+            var policy = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(policy);
+
+            //turn on camel case resolver
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
+               new CamelCasePropertyNamesContractResolver();
             // Web API configuration and services
 
             // Web API routes

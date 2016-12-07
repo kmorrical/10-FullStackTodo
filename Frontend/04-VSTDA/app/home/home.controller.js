@@ -29,6 +29,8 @@
         }
 
         vm.addTodo = addTodo;
+       vm.deleteTodo=deleteTodo;
+        vm.editTodo=editTodo;
 
 
         activate();
@@ -64,11 +66,20 @@
             }
         }
 
+      function editTodo(todo){
+            todoFactory
+            .update(todo.todoId, todo)
+            .then(function(response){
+
+            })
+        }
+
         function deleteTodo(todo) {
             todoFactory
-                .remove(todo.TodoId)
+                .remove(todo.todoId)
                 .then(function(response) {
-
+                var index =vm.todos.indexOf(todo);
+                vm.todos.splice(index,1);
                 })
         }
     };
